@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+import "./App.css";
+import QRCode from "qrcode";
 function App() {
+  // const [url, setUrl] = useState("");
+  const [qrCode, setQrCode] = useState("");
+  function generateQRcode(url) {
+    console.log(url);
+    QRCode.toDataURL(url, (err, url) => {
+      // if (err) {
+
+      // }
+      setQrCode(url);
+    });
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1>QR Code Generator</h1>
+      {qrCode !== "" ? <img src={qrCode} alt="qr-code" /> : ""}
+      <Generator handleGenerate={generateQRcode} />
+      <a href={qrCode} download="qrcode.png">
+        Download
+      </a>
     </div>
   );
 }
+function Generator({ handleGenerate }) {
+  const [url, setUrl] = useState("");
 
+  return (
+    <>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleGenerate(url);
+        }}
+      >
+        <input
+          type="text"
+          value={url}
+          placeholder="e.g. https://google.com"
+          onChange={(ev) => setUrl(ev.target.value)}
+        />
+        <button type="submit">Generate</button>
+      </form>
+    </>
+  );
+}
 export default App;

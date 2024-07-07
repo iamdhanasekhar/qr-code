@@ -1,13 +1,90 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  text-align: center;
+  background-color: #1b2034;
+  color: #fff;
+}
+
+.app {
+  padding: 2rem 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+input {
+  font-size: medium;
+  appearance: none;
+  outline: none;
+  border: none;
+  background: #eee;
+  width: 100%;
+  max-width: 300px;
+  padding: 0.7rem 1rem;
+  border-radius: 0.7rem;
+  margin-right: 1rem;
+}
+
+button,
+a {
+  display: inline-block; /* Ensure the margin works */
+  background: #73d934;
+  background-image: -webkit-linear-gradient(top, #73d934, #50b82b);
+  background-image: -moz-linear-gradient(top, #73d934, #50b82b);
+  background-image: -ms-linear-gradient(top, #73d934, #50b82b);
+  background-image: -o-linear-gradient(top, #73d934, #50b82b);
+  background-image: linear-gradient(to bottom, #73d934, #50b82b);
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 20px; /* Add margin-top to ensure it works */
+}
+
+button:hover,
+a:hover {
+  background: #a6fc3c;
+  background-image: -webkit-linear-gradient(top, #a6fc3c, #81d934);
+  background-image: -moz-linear-gradient(top, #a6fc3c, #81d934);
+  background-image: -ms-linear-gradient(top, #a6fc3c, #81d934);
+  background-image: -o-linear-gradient(top, #a6fc3c, #81d934);
+  background-image: linear-gradient(to bottom, #a6fc3c, #81d934);
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  input {
+    font-size: medium;
+    width: 90%;
+    margin: 1rem auto;
+  }
+
+  button {
+    font-size: 18px;
+    padding: 8px 16px;
+  }
 }
